@@ -11,6 +11,8 @@ import 'bootstrap'
 import '../stylesheets/application'
 import "@fortawesome/fontawesome-free/js/all";
 import JQuery from 'jquery';
+global.toastr = require("toastr")
+
 window.$ = window.JQuery = JQuery;
 
 document.addEventListener("turbolinks:load", () => {
