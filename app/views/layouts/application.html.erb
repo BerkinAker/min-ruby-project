@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Rails6 AdminLTE 3.0</title>
+    <title>Rails6 AdminLTE 3.0</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -16,16 +16,7 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <% if flash[:notice] %>
-                  <div class="notification is-success global-notification">
-                    <p class="notice"><%= notice %></p>
-                  </div>
-                <% end %>
-                <% if flash[:alert] %>
-                  <div class="notification is-danger global-notification">
-                    <p class="alert"><%= alert %></p>
-                  </div>
-                <% end %>
+              <!-- alert section -->
                 <h1 class="m-0 text-dark"></h1>
               </div>
               <!-- /.col -->
