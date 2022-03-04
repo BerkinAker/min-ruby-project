@@ -6,13 +6,16 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <%= link_to "Home", root_path, class: "nav-link" %>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-       <a href="#" class="nav-link">Login</a>
+       <%= link_to "Login", new_user_session_path, class: "nav-link"%>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Register</a>
+        <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "nav-link" %>
       </li>
     </ul>
 
