@@ -1,24 +1,76 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @bid.name %>
-</p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @bid.start_date %>
-</p>
+<%= link_to '<button type="button" class="btn btn-left mb-4 bg-gradient-primary">İhaleyi düzenle</button>'.html_safe, edit_bid_path(@bid.id) %>
+<%= link_to '<button type="button" class="btn btn-left mb-4 ml-4 bg-gradient-primary"> Geri </button>'.html_safe, bids_path %>
 
-<p>
-  <strong>End date:</strong>
-  <%= @bid.end_date %>
-</p>
 
-<p>
-  <strong>Company:</strong>
-  <%= @bid.company_id %>
-</p>
+  <div class="row">
+          <div class="col-12 p-3 mb-5">
+            <div class="card">
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>Firma adı</th>
+                      <th>Başlangıç tarihi</th>
+                      <th>Bitiş tarihi</th>
+                      <th>İhale adı</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><%= Company.find(@bid.company_id).name %></td>
+                      <td><%= @bid.start_date %></td>
+                      <td><%= @bid.end_date %></td>
+                      <td><%= @bid.name %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
 
-<%= link_to 'Edit', edit_bid_path(@bid) %> |
-<%= link_to 'Back', bids_path %>
+       <div class="col-md-8 m-auto ">
+            <div class="card">
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">#</th>
+                      <th>Ürünler</th>
+                      <th>Progress</th>
+                      <th style="width: 40px">Label</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                    <% @bid.products.each do |bid_product| %>
+                      <td>1.</td>
+                      <td><%= bid_product.name %> </td>                      
+                      <td>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                        </div>
+                      </td>
+                      <td><span class="badge bg-danger">55%</span></td>
+                    </tr>
+                    <tr>
+                    <% end %>
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+
+      
+     
