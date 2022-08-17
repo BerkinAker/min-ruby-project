@@ -2,6 +2,7 @@
 
 
 <%= link_to '<button type="button" class="btn btn-left mb-4 bg-gradient-primary">İhaleyi düzenle</button>'.html_safe, edit_bid_path(@bid.id) %>
+<%= link_to '<button type="button" class="btn btn-left mb-4 ml-4 bg-gradient-primary">İhaleye ürün ekle</button>'.html_safe, edit_bid_path(@bid.id) %>
 <%= link_to '<button type="button" class="btn btn-left mb-4 ml-4 bg-gradient-primary"> Geri </button>'.html_safe, bids_path %>
 
 
@@ -43,7 +44,6 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th style="width: 10px">#</th>
                       <th>Ürünler</th>
                       <th>Progress</th>
                       <th style="width: 40px">Label</th>
@@ -52,7 +52,6 @@
                   <tbody>
                     <tr>
                     <% @bid.products.each do |bid_product| %>
-                      <td>1.</td>
                       <td><%= bid_product.name %> </td>                      
                       <td>
                         <div class="progress progress-xs">

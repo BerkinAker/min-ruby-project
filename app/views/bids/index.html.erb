@@ -29,7 +29,6 @@
                       <th>İhale adı</th>
                       <th>Başlangıç tarihi</th>
                       <th>Bitiş tarihi</th>
-                      <th>Firma id</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -38,7 +37,6 @@
                       <td><%= bid.name %></td>                    
                       <td><%= bid.start_date %></td>                    
                       <td><%= bid.end_date%></td>                    
-                      <td><%= bid.company_id %></td> 
                       <td><%= link_to '<button type="button" class="btn btn-left bg-gradient-primary">İhaleyi ayırntılı görüntüle</button>'.html_safe, bid_path(bid.id)%> </td>                         
                      <td><%= link_to '<button type="button" class="btn btn-gradient btn-warning">Edit</button>'.html_safe, edit_bid_path(bid.id) %></td>                
                       <td><%= link_to '<button type="button" class="btn btn-gradient btn-danger __web-inspector-hide-shortcut__">Sil</button>'.html_safe, bid_path(bid.id), :confirm => 'Ürünü silmek istediginizden emin misiniz ?', :method => :delete %></td>
