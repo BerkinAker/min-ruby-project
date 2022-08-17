@@ -24,9 +24,12 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
+          <li class="nav-item mt-4">
+            <a href="<%= users_index_path %>" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-                <%= link_to "Home", root_path %>
+                Anasayfa
+                <span class="badge badge-info right"><%= User.count %></span>
               </p>
             </a>
           </li>
@@ -34,8 +37,17 @@
             <a href="<%= users_index_path %>" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-                List Users
+                Kullanıcılar
                 <span class="badge badge-info right"><%= User.count %></span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<%= products_path %>" class="nav-link">
+              <i class="nav-icon fas fa-glass-whiskey"></i>
+              <p>
+                Ürünler
+                <span class="badge badge-info right"><%= Product.count %></span>
               </p>
             </a>
           </li>
