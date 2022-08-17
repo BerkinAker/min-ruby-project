@@ -1,27 +1,48 @@
 <p id="notice"><%= notice %></p>
+  
 
-<h1>Companies</h1>
+<%= link_to '<button type="button" class="btn btn-left mb-4 bg-gradient-primary">Yeni Firma ekle</button>'.html_safe, new_company_path%>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+ <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Firmalar</h3>
 
-  <tbody>
-    <% @companies.each do |company| %>
-      <tr>
-        <td><%= company.name %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
-<br>
-
-<%= link_to 'New Company', new_company_path %>
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>Firma adı</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @companies.each do |company| %>
+                     <tr>
+                      <td><%= company.name %></td>                    
+                     <td><%= link_to '<button type="button" class="btn btn-gradient btn-warning">Edit</button>'.html_safe, edit_company_path(company.id) %></td>                
+                      <td><%= link_to '<button type="button" class="btn btn-gradient btn-danger __web-inspector-hide-shortcut__">Sil</button>'.html_safe, company_path(company.id), :confirm => 'Ürünü silmek istediginizden emin misiniz ?', :method => :delete %></td>
+                    </tr>    
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        <!-- /.row -->

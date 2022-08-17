@@ -25,11 +25,10 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item mt-4">
-            <a href="<%= users_index_path %>" class="nav-link">
+            <a href="<%= root_path %>" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Anasayfa
-                <span class="badge badge-info right"><%= User.count %></span>
               </p>
             </a>
           </li>
@@ -48,6 +47,24 @@
               <p>
                 Ürünler
                 <span class="badge badge-info right"><%= Product.count %></span>
+              </p>
+            </a>
+          </li>
+            <li class="nav-item">
+            <a href="<%= companies_path %>" class="nav-link">
+              <i class="nav-icon fas fa-city"></i>
+              <p>
+                Firmalar
+                <span class="badge badge-info right"><%= Company.count %></span>
+              </p>
+            </a>
+          </li>
+            <li class="nav-item">
+            <a href="<%= bids_path %>" class="nav-link">
+              <i class="nav-icon fas fa-dollar-sign"></i>
+              <p>
+                İhaleler
+                <span class="badge badge-info right"><%= Bid.count %></span>
               </p>
             </a>
           </li>

@@ -1,29 +1,52 @@
 <p id="notice"><%= notice %></p>
+  
 
-<h1>Products</h1>
+<%= link_to '<button type="button" class="btn btn-left mb-4 bg-gradient-primary">Yeni ürün ekle</button>'.html_safe, new_product_path%>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Bid</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+ <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Ürünler</h3>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.bid_id %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
-<br>
-
-<%= link_to 'New Product', new_product_path %>
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>Ürün adı</th>
+                      <th>İhale id</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @products.each do |product| %>
+                     <tr>
+                      <td><%= product.name %></td>
+                      <td><%= product.bid_id %></td>
+                     <td><%= link_to '<button type="button" class="btn btn-gradient btn-warning">Edit</button>'.html_safe, edit_product_path(product.id) %></td>                
+                      <td><%= link_to '<button type="button" class="btn btn-gradient btn-danger __web-inspector-hide-shortcut__">Sil</button>'.html_safe, product_path(product.id), :confirm => 'Ürünü silmek istediginizden emin misiniz ?', :method => :delete %></td>
+                    </tr>    
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        <!-- /.row -->

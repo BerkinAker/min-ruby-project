@@ -2,7 +2,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Users</h3>
+                <h3 class="card-title">Kullanıcılar</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -36,8 +36,8 @@
                       <td><%= user.email %></td>
                       <td><%= user.created_at %></td>
                       <td><span class="tag tag-success">User</span></td>
-                      <td><%= link_to '<button type="button" class="btn btn-block btn-warning">Edit</button>'.html_safe, edit_user_registration_path %></td>                
-                      <td><%= link_to '<button type="button" class="btn btn-block btn-danger __web-inspector-hide-shortcut__">Sil</button>'.html_safe, user_registration_path, :confirm => 'Hesabinizi silmek istediginizden emin misiniz ?', :method => :delete %></td>
+                      <td><%= link_to '<button type="button" class="btn btn-gradient btn-warning">Edit</button>'.html_safe, edit_user_registration_path %></td>                
+                      <td><%= link_to '<button type="button" class="btn btn-gradient btn-danger __web-inspector-hide-shortcut__">Sil</button>'.html_safe, user_registration_path, :confirm => 'Hesabinizi silmek istediginizden emin misiniz ?', :method => :delete %></td>
                     </tr>
                     <% end %>
                   </tbody>
