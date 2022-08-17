@@ -1,0 +1,51 @@
+ <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Users</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>User mail</th>
+                      <th>Oluşturulma tarihi</th>
+                      <th>Statü</th>
+                      <th>Düzenle</th>
+                      <th>Sil</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <% @users.each do |user| %>
+                    <tr>
+                      <td><%= user.id %></td>
+                      <td><%= user.email %></td>
+                      <td><%= user.created_at %></td>
+                      <td><span class="tag tag-success">User</span></td>
+                      <td><%= link_to '<button type="button" class="btn btn-block btn-warning">Edit</button>'.html_safe, edit_user_registration_path %></td>                
+                      <td><%= link_to '<button type="button" class="btn btn-block btn-danger __web-inspector-hide-shortcut__">Sil</button>'.html_safe, user_registration_path, :confirm => 'Hesabinizi silmek istediginizden emin misiniz ?', :method => :delete %></td>
+                    </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        <!-- /.row -->
