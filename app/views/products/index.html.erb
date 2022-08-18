@@ -27,7 +27,6 @@
                   <thead>
                     <tr>
                       <th>Ürün adı</th>
-                      <th>İhale id</th>
                       <th></th>
                       <th></th>
                     </tr>
@@ -36,7 +35,6 @@
                     <% @products.each do |product| %>
                      <tr>
                       <td><%= product.name %></td>
-                      <td><%= product.bid_id %></td>
                      <td><%= link_to '<button type="button" class="btn btn-gradient btn-warning">Edit</button>'.html_safe, edit_product_path(product.id) %></td>                
                       <td><%= link_to '<button type="button" class="btn btn-gradient btn-danger __web-inspector-hide-shortcut__">Sil</button>'.html_safe, product_path(product.id), :confirm => 'Ürünü silmek istediginizden emin misiniz ?', :method => :delete %></td>
                     </tr>    

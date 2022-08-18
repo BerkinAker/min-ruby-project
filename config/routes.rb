@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bid_products
   resources :units
   resources :products
   resources :bids

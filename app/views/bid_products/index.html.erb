@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bid Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bid</th>
+      <th>Product</th>
+      <th>Unit</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bid_products.each do |bid_product| %>
+      <tr>
+        <td><%= bid_product.bid_id %></td>
+        <td><%= bid_product.product_id %></td>
+        <td><%= bid_product.unit_id %></td>
+        <td><%= bid_product.quantity %></td>
+        <td><%= link_to 'Show', bid_product %></td>
+        <td><%= link_to 'Edit', edit_bid_product_path(bid_product) %></td>
+        <td><%= link_to 'Destroy', bid_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bid Product', new_bid_product_path %>

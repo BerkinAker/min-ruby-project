@@ -2,9 +2,8 @@
 
 
 <%= link_to '<button type="button" class="btn btn-left mb-4 bg-gradient-primary">İhaleyi düzenle</button>'.html_safe, edit_bid_path(@bid.id) %>
-<%= link_to '<button type="button" class="btn btn-left mb-4 ml-4 bg-gradient-primary">İhaleye ürün ekle</button>'.html_safe, edit_bid_path(@bid.id) %>
+<%= link_to '<button type="button" class="btn btn-left mb-4 ml-4 bg-gradient-primary">İhaleye ürün ekle</button>'.html_safe, new_bid_product_path(@bid.id) %>
 <%= link_to '<button type="button" class="btn btn-left mb-4 ml-4 bg-gradient-primary"> Geri </button>'.html_safe, bids_path %>
-
 
   <div class="row">
           <div class="col-12 p-3 mb-5">
@@ -46,19 +45,19 @@
                     <tr>
                       <th>Ürünler</th>
                       <th>Progress</th>
-                      <th style="width: 40px">Label</th>
+                      <th style="width: 40px">Birim</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                    <% @bid.products.each do |bid_product| %>
-                      <td><%= bid_product.name %> </td>                      
+                    <% @bid.bid_products.each do |bid_product| %>
+                      <td><%= Product.find(bid_product.product_id).name  %> </td>                      
                       <td>
                         <div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                          <div class="progress-bar progress-bar-danger" style="width: <%= bid_product.quantity %>%"></div>
                         </div>
                       </td>
-                      <td><span class="badge bg-danger">55%</span></td>
+                      <td><span class="badge bg-danger"><%= bid_product.quantity %> <%= Unit.find(bid_product.unit_id).name %></span></td>
                     </tr>
                     <tr>
                     <% end %>
