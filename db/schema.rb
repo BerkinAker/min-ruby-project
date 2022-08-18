@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_17_223149) do
+ActiveRecord::Schema.define(version: 2022_08_18_071244) do
 
   create_table "bid_products", force: :cascade do |t|
     t.integer "bid_id", null: false
@@ -44,10 +44,6 @@ ActiveRecord::Schema.define(version: 2022_08_17_223149) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "bid_id"
-    t.integer "unit_id"
-    t.index ["bid_id"], name: "index_products_on_bid_id"
-    t.index ["unit_id"], name: "index_products_on_unit_id"
   end
 
   create_table "units", force: :cascade do |t|
@@ -72,6 +68,4 @@ ActiveRecord::Schema.define(version: 2022_08_17_223149) do
   add_foreign_key "bid_products", "products"
   add_foreign_key "bid_products", "units"
   add_foreign_key "bids", "companies"
-  add_foreign_key "products", "bids"
-  add_foreign_key "products", "units"
 end

@@ -1,3 +1,3 @@
 class Unit < ApplicationRecord
-  has_many :products
+  has_many :bid_products
 end

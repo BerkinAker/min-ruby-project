@@ -12,8 +12,7 @@ class BidProductsController < ApplicationController
 
   # GET /bid_products/new
   def new
-    @bid_product = BidProduct.new
-    @bid = Bid.find(params[:format])
+    @bid_product = BidProduct.new()
   end
 
   # GET /bid_products/1/edit
@@ -27,7 +26,7 @@ class BidProductsController < ApplicationController
     respond_to do |format|
       if @bid_product.save
         format.html { redirect_to bid_product_url(@bid_product), notice: "Bid product was successfully created." }
-        format.json { render :show => "bid/show", status: :created, location: @bid_product }
+        format.json { render :show => "bids/show", status: :created, location: @bid_product }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @bid_product.errors, status: :unprocessable_entity }

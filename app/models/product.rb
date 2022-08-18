@@ -1,4 +1,3 @@
 class Product < ApplicationRecord
-  belongs_to :bid
-  belongs_to :unit
+  has_one :bid_products
 end
