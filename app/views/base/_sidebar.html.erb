@@ -24,7 +24,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item mt-4">
+          <li class="<%= "nav-link mt-4 active" if current_page?(root_path) %>">
             <a href="<%= root_path %>" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
@@ -32,48 +32,43 @@
               </p>
             </a>
           </li>
-         <li class="nav-item">
+         <li class="<%= "nav-link active" if current_page?(users_index_path) %>">
             <a href="<%= users_index_path %>" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Kullanıcılar
-                <span class="badge badge-info right"><%= User.count %></span>
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="<%= "nav-link active" if current_page?(products_path) %>">
             <a href="<%= products_path %>" class="nav-link">
               <i class="nav-icon fas fa-glass-whiskey"></i>
               <p>
                 Ürünler
-                <span class="badge badge-info right"><%= Product.count %></span>
               </p>
             </a>
           </li>
-            <li class="nav-item">
+            <li class="<%= "nav-link active" if current_page?(companies_path) %>">
             <a href="<%= companies_path %>" class="nav-link">
               <i class="nav-icon fas fa-city"></i>
               <p>
                 Firmalar
-                <span class="badge badge-info right"><%= Company.count %></span>
               </p>
             </a>
           </li>
-            <li class="nav-item">
+            <li class=" <%= "nav-link active" if current_page?(bids_path) %>">
             <a href="<%= bids_path %>" class="nav-link">
               <i class="nav-icon fas fa-dollar-sign"></i>
               <p>
                 İhaleler
-                <span class="badge badge-info right"><%= Bid.count %></span>
               </p>
             </a>
           </li>
-           <li class="nav-item">
+           <li class=" <%= "nav-link active" if current_page?(new_bid_product_path) %> ">
             <a href="<%= new_bid_product_path %>" class="nav-link">
               <i class="nav-icon fas fa-city"></i>
               <p>
                 İhale Ürün 
-                <span class="badge badge-info right"><%= BidProduct.count %></span>
               </p>
             </a>
           </li>

@@ -43,24 +43,16 @@
                   <thead>
                     <tr>
                       <th>Ürünler</th>
-                      <th>Progress</th>
-                      <th style="width: 40px">Birim</th>
+                      <th>Birim</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                     <% @bid.bid_products.each do |bid_product| %>
-                      <td><%= Product.find(bid_product.product_id).name  %> </td>                      
-                      <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-danger" style="width: <%= bid_product.quantity %>%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-danger"><%= bid_product.quantity %> <%= Unit.find(bid_product.unit_id).name %></span></td>
+                      <td><%= Product.find(bid_product.product_id).name  %> </td>                                   
+                      <td><span class="badge badge-primary"><%= bid_product.quantity %> <%= Unit.find(bid_product.unit_id).name %></span></td>
                     </tr>
-                    <tr>
                     <% end %>
-
                   </tbody>
                 </table>
               </div>
