@@ -1,5 +1,5 @@
 module ApplicationHelper
-
+  include Pagy::Frontend
     def toastr_flash
         flash.each_with_object([]) do |(type, message), flash_messages|
           type = 'success' if type == 'notice'

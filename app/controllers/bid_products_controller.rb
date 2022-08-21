@@ -13,6 +13,7 @@ class BidProductsController < ApplicationController
   # GET /bid_products/new
   def new
     @bid_product = BidProduct.new()
+    @bid_id = params[:bid_id]
   end
 
   # GET /bid_products/1/edit

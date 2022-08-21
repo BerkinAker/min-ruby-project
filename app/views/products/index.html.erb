@@ -2,7 +2,7 @@
   
 
 <%= link_to '<button type="button" class="btn btn-left mb-4 bg-gradient-primary">Yeni ürün ekle</button>'.html_safe, new_product_path%>
-
+ <%== pagy_nav(@pagy) %>
  <div class="row">
           <div class="col-12">
             <div class="card">
@@ -35,7 +35,7 @@
                     <% @products.each do |product| %>
                      <tr>
                       <td><%= product.name %></td>
-                     <td><%= link_to '<button type="button" class="btn btn-gradient btn-warning">Edit</button>'.html_safe, edit_product_path(product.id) %></td>                
+                     <td><%= link_to '<button type="button" class="btn btn-gradient btn-warning">Düzenle</button>'.html_safe, edit_product_path(product.id) %></td>                
                       <td><%= link_to '<button type="button" class="btn btn-gradient btn-danger __web-inspector-hide-shortcut__">Sil</button>'.html_safe, product_path(product.id), :confirm => 'Ürünü silmek istediginizden emin misiniz ?', :method => :delete %></td>
                     </tr>    
                     <% end %>
