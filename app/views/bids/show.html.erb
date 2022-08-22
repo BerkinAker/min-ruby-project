@@ -44,6 +44,7 @@
                     <tr>
                       <th>Ürünler</th>
                       <th>Miktar</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -51,6 +52,7 @@
                     <% @bid.bid_products.each do |bid_product| %>
                       <td><%= Product.find(bid_product.product_id).name  %> </td>                                   
                       <td><span class="badge badge-primary"><%= bid_product.quantity %> <%= Unit.find(bid_product.unit_id).name %></span></td>
+                      <td><%= link_to '<button type="button" class="btn btn-gradient btn-danger __web-inspector-hide-shortcut__">Sil</button>'.html_safe, bid_product_path(bid_product.id), :confirm => 'Ürünü silmek istediginizden emin misiniz ?', :method => :delete %></td>
                     </tr>
                     <% end %>
                   </tbody>
