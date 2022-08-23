@@ -1,67 +1,61 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to '<button type="button" class="btn btn-left mb-4  bg-gradient-primary">İhaleye ürün ekle</button>'.html_safe, new_bid_product_path({:bid_id => @bid.id}) %>
-<%= link_to '<button type="button" class="btn btn-left mb-4 ml-4 bg-gradient-primary">İhaleyi düzenle</button>'.html_safe, edit_bid_path(@bid.id) %>
-<%= link_to '<button type="button" class="btn btn-left mb-4 ml-4 bg-gradient-primary"> Geri </button>'.html_safe, bids_path %>
-
-  <div class="row">
-          <div class="col-12 p-3 mb-5">
-            <div class="card">
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
-                  <thead>
-                    <tr>
-                      <th>Firma adı</th>
-                      <th>Başlangıç tarihi</th>
-                      <th>Bitiş tarihi</th>
-                      <th>İhale adı</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><%= Company.find(@bid.company_id).name %></td>
-                      <td><%= @bid.start_date %></td>
-                      <td><%= @bid.end_date %></td>
-                      <td><%= @bid.name %></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-        </div>
+<div class="row">
+  <div class="col-12 p-3 mb-5">
+    <div class="card">
+      <!-- /.card-header -->
+      <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+          <thead>
+            <tr>
+              <th>Firma adı</th>
+              <th>Başlangıç tarihi</th>
+              <th>Bitiş tarihi</th>
+              <th>İhale adı</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= Company.find(@bid.company_id).name %></td>
+              <td><%= @bid.start_date %></td>
+              <td><%= @bid.end_date %></td>
+              <td><%= @bid.name %></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
 
-       <div class="col-md-8 m-auto ">
-            <div class="card">
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Ürünler</th>
-                      <th>Miktar</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                    <% @bid.bid_products.each do |bid_product| %>
-                      <td><%= Product.find(bid_product.product_id).name  %> </td>                                   
-                      <td><span class="badge badge-primary"><%= bid_product.quantity %> <%= Unit.find(bid_product.unit_id).name %></span></td>
-                      <td><%= link_to '<button type="button" class="btn btn-gradient btn-danger __web-inspector-hide-shortcut__">Sil</button>'.html_safe, bid_product_path(bid_product.id), :confirm => 'Ürünü silmek istediginizden emin misiniz ?', :method => :delete %></td>
-                    </tr>
-                    <% end %>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
-
-      
-     
+  </div>
+</div>
+</div>
+<div class="col-md-8 m-auto ">
+  <div class="card">
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Ürünler</th>
+            <th>Miktar</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <% @bid.bid_products.each do |bid_product| %>
+              <td><%= Product.find(bid_product.product_id).name  %> </td>
+              <td><span class="badge badge-primary"><%= bid_product.quantity %> <%= Unit.find(bid_product.unit_id).name %></span></td>
+              <td><%= link_to '<button type="button" class="btn btn-gradient btn-sm btn-danger __web-inspector-hide-shortcut__">İhaleden kaldır</button>'.html_safe, bid_product_path(bid_product.id), :confirm => 'Ürünü silmek istediginizden emin misiniz ?', :method => :delete %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+      <%= link_to '<button type="button" class="btn btn-left mb-4  bg-gradient-primary">İhaleye ürün ekle</button>'.html_safe, new_bid_product_path({:bid_id => @bid.id}) %>
+    <%= link_to '<button type="button" class="btn btn-left mb-4 ml-4 bg-gradient-primary">İhaleyi düzenle</button>'.html_safe, edit_bid_path(@bid.id) %>
+    <%= link_to '<button type="button" class="btn btn-left float-right mb-4 ml-4 bg-gradient-primary"> Geri </button>'.html_safe, bids_path %>
+  <!-- /.card -->
+</div>

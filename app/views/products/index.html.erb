@@ -1,9 +1,5 @@
-<p id="notice"><%= notice %></p>
-  
-
-<%= link_to '<button type="button" class="btn btn-left mb-4 bg-gradient-primary">Yeni ürün ekle</button>'.html_safe, new_product_path%>
  <%== pagy_nav(@pagy) %>
- <div class="row">
+ <div class="row mt-3">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
@@ -45,6 +41,7 @@
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
+              <%= link_to '<button type="button" class="btn btn-left mb-4 bg-gradient-primary">Yeni ürün ekle</button>'.html_safe, new_product_path%>
           </div>
         </div>
         <!-- /.row -->

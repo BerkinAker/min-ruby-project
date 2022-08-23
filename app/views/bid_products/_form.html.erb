@@ -5,13 +5,16 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.association  :bid %>
-    <%= f.association :product%>
-    <%= f.association :unit %>
-    <%= f.input :quantity %>
+    <%= f.association  :bid, input_html: { class: 'custom-select form-control-border' } %>
+    <%= f.association :product, input_html: { class: 'custom-select form-control-border' }%>
+    <%= f.association :unit, input_html: { class: 'custom-select form-control-border' } %>
+    <%= f.input :quantity, input_html: { class: 'form-control form-control-border' } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: 'btn btn-primary mt-4 mb-4' %>
+  <%= link_to '<button type="button" class="btn btn float-right mt-4 bg-primary">Geri</button>'.html_safe, bid_path(@bid_id)%>
+
   </div>
+
 <% end %>

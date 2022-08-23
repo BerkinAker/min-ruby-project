@@ -1,17 +1,15 @@
 <% content_for :title do %>
-  Sign up
+  Hesap Oluştur
 <% end %> 
-<h2>Sign up</h2>
+<h2>Hesap Oluştur</h2>
 <div class="register-box">
-  <div class="register-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
-  </div>
+
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Register a new membership <br/>
+      <p class="login-box-msg">Yeni bir üyelik oluşturun <br/>
         <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <em>(minimum <%= @minimum_password_length %> karakter)</em>
            <% end %>
            </p>
 
@@ -45,18 +43,18 @@
             <div class="icheck-primary">
               <input type="checkbox" id="agreeTerms" name="terms" value="agree">
               <label for="agreeTerms">
-               I agree to the <a href="#">terms</a>
+                <a href="#">Koşulları</a> kabul ediyorum
               </label>
             </div>
           </div>
           <!-- /.col -->
          <div class="col-4">
-            <%= f.submit "Sign up", data: {turbo: false}, class: "btn btn-primary btn-block" %>
+            <%= f.submit "Oluştur", data: {turbo: false}, class: "btn btn-primary btn-block" %>
           </div>
           <!-- /.col -->
         </div>
       <% end %>
-      <%= link_to "Back", root_path%>
+      <%= link_to "Geri", root_path%>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->
